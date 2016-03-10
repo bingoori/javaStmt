@@ -24,8 +24,7 @@ public class kaupMain {
 		k.setHeight(sc.nextInt());
 		k.setWeight(sc.nextInt());
 		k.setResult();
-		result = k.getResult();//파라미터 값 height,weight
-		System.out.println(result);
+		System.out.println(k.toString());
 	}
 
 	

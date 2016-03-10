@@ -64,4 +64,9 @@ public class kaup {
 		}
 		this.result = temp;
 	}
+	@Override
+	public String toString() {
+		return "카우푸지수 [이름="+ name + " 결과 "+result+"]";
+	}
+
 }
