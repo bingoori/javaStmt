@@ -11,6 +11,7 @@ public class AccountBean {
 	private String name;
 	private int password;
 	private int money;
+
 	public static final String BANK_NAME = "한빛뱅크";
 	
 	
@@ -21,8 +22,10 @@ public class AccountBean {
 	 * 계좌 주인의 이름은 새겨지며 비번도 설정합니다
 	 * 다만, 잔액은 통장이 만들어진 이후에 입금이 되겠지요.
 	 * */
+	public AccountBean() {}//지역변수로 활용하기 위한 오버로딩
+	
 	public AccountBean(String name,int password) {
-	this.accountNo = (int) (Math.random() * 999998)+1;
+	this.accountNo = (int) (Math.random() * 999998);
 	this.name = name;
 	this.password = password;
 	this.money=0;

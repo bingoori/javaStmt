@@ -4,25 +4,17 @@ public interface BankService {
 	/**
 	 * 계좌 개설
 	 */
-	public String openAccount(AccountBean acc);
+	public String openAccount(String name,int password);
 	/**
-	 * 계좌번호로 계좌 조회(반드시 하나만 검색됨)
+	 * 입금 
 	 * */
-	public AccountBean findAccountByAccountNo(int accountNo);
+	public String deposit(int money);
 	/**
-	 * 이름으로 계좌 조회(복수개의 결과가능)
+	 * 출금
 	 * */
-	public AccountBean[] findAccountsByName(String name);
+	public String withdraw(int money);
 	/**
-	 * 계좌 해지
+	 * 잔액 조회
 	 * */
-	public String closeAccount(int accountNo);
-	/**
-	 * 전체 계좌수 조회
-	 * */
-	public int countAll();
-	/**
-	 * 해당 이름에 맞는 계좌 수 조회
-	 * */
-	public int countByName();
+	public int findMoney();
 }
