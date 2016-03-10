@@ -1,36 +1,67 @@
 package ifelse;
 
-import java.util.Scanner;
-
+/**
+ *@file : kaup.java
+ *@author bingoori
+ *@date 2016. 3. 10.
+ *@story
+ */
 public class kaup {
+	//속성 영역 : Field
+	private int kaup;
+	private double height, weight;
+	private String result,name;
+	
+	//기능 영역 : Area
 
-	public static void main(String[] args) {
-		
-		
-		//지역변수
-		int kaup = 0;
-		String result = "", name = "";
-		Scanner sc = new Scanner(System.in);
-		
-		System.out.println("이름 입력");
-		name = sc.next();
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public double getHeight() {
+		return height;
+	}
+	public void setHeight(double height) {
+		this.height = height;
+	}
+	public double getWeight() {
+		return weight;
+	}
+	public void setWeight(double weight) {
+		this.weight = weight;
+	}
+	public int getKaup() {
+		return kaup;
+	}
+	public void setKaup() {
+		this.kaup = (int) ((weight/(height*height))*10000);
+	}
+	public String getResult() {
+
+		return result;
+	}
+	public void setResult() {
+		setKaup();
+		String temp = "";
+	
 		//분기문 영역
 		if (kaup > 30) {
-			result = "비만입니다";
+			temp = "비만입니다";
 		} else if (kaup >= 24) {
-			result = "과체중 입니다.";
+			temp = "과체중 입니다.";
 		} else if (kaup >= 20) {
-			result = "정상 입니다.";
+			temp = "정상 입니다.";
 		} else if (kaup >= 15) {
-			result = "저체중 입니다..";
+			temp = "저체중 입니다..";
 		} else if (kaup >= 13) {
-			result = "마름 입니다..";
+			temp = "마름 입니다..";
 		} else if (kaup >= 10) {
-			result = "영양실조 입니다..";
+			temp = "영양실조 입니다..";
 		}else {
-			result = "소모즁";
+			temp = "소모즁";
 		}
-		System.out.println(result);
+		this.result = temp;
 	}
-
 }

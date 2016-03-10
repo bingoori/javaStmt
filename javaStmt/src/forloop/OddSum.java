@@ -1,5 +1,11 @@
 package forloop;
 
+/**
+ *@file : OddSum.java
+ *@author bingoori
+ *@date 2016. 3. 10.
+ *@story
+ */
 public class OddSum {
 public static void main(String[] args) {
 	int sum = 0;
@@ -9,10 +15,9 @@ public static void main(String[] args) {
 			sum += i;
 	
 	}
-	System.out.println(sum);
 	
 	for (int i = 1; i <= 10; i++) {
-		if(i % 2 != 1)
+		if(i % 2 != 0)
 		{
 		odd += i;
 		}
