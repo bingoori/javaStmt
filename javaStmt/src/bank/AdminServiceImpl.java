@@ -20,6 +20,7 @@ public class AdminServiceImpl implements AdminService {
 		 * 계좌 개설
 		 */
 		AccountBean bean = new AccountBean(name, password);
+		accountList[count] = bean;
 		count++; //계좌를 개설할 때마다 카운트를 1씩 증가 시킨다.
 		return bean.toString();
 	}
@@ -31,9 +32,9 @@ public class AdminServiceImpl implements AdminService {
 		 */
 		AccountBean temp = new AccountBean();
 		 for (int i = 0; i < count; i++) {
-			 if(true)
+			 if(accountList[i].getAccountNo() == accountNo)
 			 {
-				 temp = null;
+				 temp = accountList[i];
 			 }
 			
 		}
@@ -46,6 +47,13 @@ public class AdminServiceImpl implements AdminService {
 		 * 이름으로 계좌 조회(복수개의 결과가능)
 		 */
 		AccountBean[] tempList = new AccountBean[this.countByName(name)];
+		int tempCount=0;
+		System.out.println(tempList.length);
+		for (int i = 0; i < count; i++) {
+			if(accountList[i].getName().equals(name)){
+				tempList[tempCount++] = accountList[i];
+			}
+		}
 		return tempList;
 	}
 
@@ -54,7 +62,17 @@ public class AdminServiceImpl implements AdminService {
 		/**
 		 * 계좌 해지
 		 */
-		return null;
+		for (int i = 0; i < count; i++) {
+			
+			if(accountList[i].getAccountNo() == accountNo)
+			{
+				accountList[i] =accountList[count-1];
+				accountList[count-1] = null;
+				count--;
+				break;
+			}
+		}
+		return "해지 완료";
 	}
 
 	@Override
@@ -67,11 +85,16 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public int countByName(String name) {
+		int UserCount = 0;
 		/**
 		 * 해당 이름에 맞는 계좌 수 조회
 		 */
-		
-		return 0;
+		for (int i = 0; i < count; i++) {
+			if(accountList[i].getName().equals(name)){
+				UserCount++;
+			}
+		}
+		return UserCount;
 	}
 
 }

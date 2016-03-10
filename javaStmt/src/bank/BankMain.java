@@ -30,9 +30,24 @@ public static void main(String[] args) {
 	 * */
 	
 	AdminServiceImpl service = new AdminServiceImpl(5);
+	
 	System.out.println(service.openAccount(scanner.next(), scanner.nextInt()));
+	System.out.println(service.openAccount(scanner.next(), scanner.nextInt()));
+	System.out.println(service.openAccount(scanner.next(), scanner.nextInt()));
+	/*	System.out.println("전체 계좌수 조회");
 	System.out.println(service.countAll());
-	
-	
+	System.out.println("이름 입력");
+	System.out.println("countByName 유저 계좌카운트 수");
+	System.out.println(service.countByName(scanner.next()));
+	System.out.println("이름으로 계좌 조회");
+	AccountBean[] bean = service.findAccountsByName(scanner.next());
+	for (int i = 0; i < bean.length; i++) {
+	System.out.println(bean[i].toString());	
+	}
+	System.out.println("계좌번호 조회");
+	AccountBean beans = service.findAccountByAccountNo(scanner.nextInt());
+	System.out.println(beans.toString());*/
+	System.out.println("계좌해지");
+	System.out.println(service.closeAccount(scanner.nextInt()));
 }
 }

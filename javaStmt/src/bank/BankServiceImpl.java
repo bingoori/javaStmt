@@ -11,13 +11,13 @@ public class BankServiceImpl implements BankService {
 
 	@Override
 	public String deposit(int money) {
-		account.setMoney(account.getMoney()+money);
+		account.setMoney(account.getMoney() + money);
 		return money+"";
 	}
 
 	@Override
 	public String withdraw(int money) {
-		account.setMoney(account.getMoney()-money);
+		account.setMoney(account.getMoney() - money);
 		return money +"";
 	}
 
