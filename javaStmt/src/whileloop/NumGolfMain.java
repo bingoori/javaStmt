@@ -10,11 +10,12 @@ import java.util.Scanner;
  */
 public class NumGolfMain {
 	public static void main(String[] args) {
-		NumGolfBean bean = new NumGolfBean();
 		
+		NumGolfBean bean = new NumGolfBean();
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("컴퓨터 랜덤 수 발생");
 		bean.setCom();
+		
 		while(bean.isFlag() == false)
 		{
 			bean.setPlayer(scanner.nextInt()); 
