@@ -17,15 +17,15 @@ public class NumGolfMain {
 		bean.setCom();
 		while(bean.isFlag() == false)
 		{
-			int input = scanner.nextInt();
-			if(bean.getCom() == input)
+			bean.setPlayer(scanner.nextInt()); 
+			if(bean.getCom() == bean.getPlayer())
 			{
-				System.out.println("정답");
+				System.out.println("일치");
 				bean.setFlag(true);
-				bean.setPlayer(input);
 			}else
 			{
-				bean.setCount((bean.getCount()+1));
+				bean.setCount(bean.getCount()+1);
+				System.out.println("불일치");
 			}
 			
 		}
