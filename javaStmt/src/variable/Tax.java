@@ -16,7 +16,12 @@ import java.util.Scanner;
 public class Tax {
 public static void main(String[] args) {
 	Scanner scanner = new Scanner(System.in);
-	int money = (int)(scanner.nextInt()*0.1);
-	System.out.println("이번달 납부할 세금은 "+money+"만원 입니다.");
+	System.out.println("이름을 입력");
+	String name = scanner.next();
+	System.out.println("연봉을 입력");
+	int money = scanner.nextInt();
+	int result = (int)(money*0.1);
+	System.out.println("연봉 "+money+"원을 받으시는 "+name+ "님께서");
+	System.out.println("이번달 납부할 세금은 "+money+"원 입니다.");
 }
 }
