@@ -22,8 +22,8 @@ public static void main(String[] args) {
 	 name = scanner.next();
 	System.out.println("연봉을 입력");
 	 money = scanner.nextInt();
-	 result = (int)(money*0.1);
+	 result = (int)(money*0.1)/12;
 	System.out.println("연봉 "+money+"원을 받으시는 "+name+ "님께서");
-	System.out.println("이번달 납부할 세금은 "+money+"원 입니다.");
+	System.out.println("이번달 납부할 세금은 "+result+"원 입니다.");
 }
 }

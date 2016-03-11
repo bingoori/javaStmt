@@ -17,12 +17,13 @@ public class InputguGugudan {
 		System.out.println("정수를 입력하세요");
 		if (input <= 0) {
 			System.out.println("정수값만 입력하시오");
-		} else {
+			return; //아무값을 반환하지 않고 종료시킨다. --> 이메소드를 종료시켜라
+		} 
 		for(int i = 1; i <= 9 ; i++)
 		{
 			System.out.println(input+" * "+i+" = "+(input*i));
 		}
-		}
+		
 	}
 
 }
