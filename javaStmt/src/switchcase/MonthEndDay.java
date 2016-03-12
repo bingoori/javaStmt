@@ -1,7 +1,7 @@
 package switchcase;
 
 import java.util.Scanner;
-
+import ifelse.LeafYear;
 /**
  * @package : switchcase
  * @file : MonthEndDay.java
@@ -11,10 +11,13 @@ import java.util.Scanner;
  */
 public class MonthEndDay {
 	public static void main(String[] args) {
+		LeafYear leaf = new LeafYear();
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("년 월 입력");
-		int year = scanner.nextInt(),month = scanner.nextInt(), endDay = 0;
-
+		int year = scanner.nextInt();
+		String years = leaf.getYear(year);
+		int month = scanner.nextInt(), endDay = 0;
+		
 		switch (month) {
 		case 1:	case 3:	case 5: case 7:	case 8:	case 10:
 		case 12:

@@ -1,5 +1,7 @@
 package ifelse;
 
+import java.util.Scanner;
+
 /**
  *@package : ifelse
  *@file : Pass.java
@@ -17,6 +19,26 @@ package ifelse;
  */
 public class Pass {
 public static void main(String[] args) {
-	
+	Scanner scanner = new Scanner(System.in);
+	String name ="",pass="";
+	int java =0,jsp =0,sql=0,spring=0,total=0;
+	double ave =0;
+	System.out.println("학생의 이름,java,jsp,sql,spring 순으로 입력하세요");
+	name = scanner.next();
+	jsp = scanner.nextInt();
+	java = scanner.nextInt();
+	sql = scanner.nextInt();
+	spring = scanner.nextInt();
+	total = java+jsp+sql+spring;
+	ave = total/4;
+	if(ave > 60){
+		pass ="합격";
+	}else
+	{
+		pass ="불합격";
+	}
+	System.out.println("학생\tJAVA\tJSP\tSQL\tSPRING\t총점\t평균\t합격여부");
+	System.out.println("--------------------------------------------------------------");
+	System.out.println(name+"\t"+java+"\t"+jsp+"\t"+sql+"\t"+sql+"\t"+total+"\t"+ave+"\t"+pass);
 }
 }

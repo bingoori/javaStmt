@@ -14,8 +14,9 @@ public class Gender {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("이름을 입력하세요");
 		System.out.println("주민번호를 입력하세요");
-		String name = scanner.next(),ssn = scanner.next();
+		String name = scanner.next(),ssn = scanner.next(),result ="";
 		char flag = ssn.charAt(7);
+		
 		/**
 		 * 800101 - 1234567
 		 * 인덱스 0부터 시작
@@ -27,21 +28,21 @@ public class Gender {
 		System.out.println("홍길동은 남자 입니다.");
 		switch (flag) {
 		case '1':
-			break;
 		case '3':
+			result = "남자";
 			break;
 		case '2':
-			break;
 		case '4':
+			result = "여자";
 			break;
 		case '5':
-			break;
 		case '6':
+			result = "외쿡인";
 			break;
-			
 		default:
-			break;
+			System.out.println("잘못된 주민등록번호 입니다.");
+			return;
 		}
-		
+		System.out.println(name+" 은 "+result+" 남자 입니다." );
 	}
 }

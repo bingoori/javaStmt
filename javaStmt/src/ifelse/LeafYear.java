@@ -18,17 +18,30 @@ import java.util.Scanner;
  *객체로 연결도 해본다. 년 월 다입력받는다.
  */
 
-public class LeayYear {
+public class LeafYear {
+	private static String yearStr;
 	public static void main(String[] args) {
+	LeafYear leaf = new LeafYear();
 	Scanner scanner = new Scanner(System.in);
 	System.out.println("판별하려는 년도를 입력");
 	int year = scanner.nextInt();
-	String yearStr = "";
-	if(year%100 == 0){ //100으로 나눠 떨어진다.
-		yearStr = "윤년";
-	}else{
-		yearStr = "평년";
-	}
-	System.out.println(year + "는 "+ yearStr + "입니다.");
+	 yearStr = leaf.getYear(year);
+	 System.out.println(yearStr);
 }
+
+	public String getYear(int year) {
+		if(year % 4 == 0)
+		{	
+			if((year % 100 ==0) && (year % 400 != 0)){
+			yearStr ="평년";
+			}else
+			{
+				yearStr = "윤년";
+			}
+		}else {
+			yearStr="평년";
+			
+		}
+		return yearStr;
+	}
 }
