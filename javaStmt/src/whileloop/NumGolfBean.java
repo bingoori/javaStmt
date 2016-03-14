@@ -29,8 +29,8 @@ public class NumGolfBean {
 	public int getCount() {
 		return count;
 	}
-	public void setCount(int count) {
-		this.count = count;
+	public void setCount() {
+		this.count++;
 	}
 	public boolean isFlag() {
 		return flag;
@@ -38,6 +38,7 @@ public class NumGolfBean {
 	public void setFlag(boolean flag) {
 		this.flag = flag;
 	}
+
 	@Override
 	public String toString() {
 		return "결과 [플레이어=" + player + ", 컴=" + com + ", 카운트=" + count + ", 결과=" + flag + "]";

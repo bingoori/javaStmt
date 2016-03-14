@@ -47,6 +47,15 @@ public static void main(String[] args) {
 		System.out.println(name+"\t"+java+"\t"+jsp+"\t"+sql+"\t"+sql+"\t"+total+"\t"+ave+"\t"+pass);
 		return;
 	}
+/*	
+	switch ((int)average/10) { 
+		case 10: case 9: case 8: case 7: case 6: pass ="합격";break; 
+ 
+
+ 		default: pass="불합격"; 
+ 			break; 
+ 		} 
+*/
 	
 }
 }
