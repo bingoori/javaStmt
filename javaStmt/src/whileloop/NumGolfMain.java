@@ -37,8 +37,9 @@ public class NumGolfMain {
 				System.out.println("도전 횟수는 " +(bean.getCount()+1));
 				bean.setPlayer(scanner.nextInt());
 				bean.setCount();
-				bean.setFlag(true);
-				System.out.println(msg = (bean.getCom() == bean.getPlayer()) ?bean.toString(): "랜덤숫자와 불일치");			
+				System.out.println((bean.getCom() == bean.getPlayer()) ?bean.result(): "랜덤숫자와 불일치");
+				
+				
 			}
 			
 		case 2: return;
