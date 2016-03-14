@@ -31,17 +31,16 @@ public class NumGolfMain {
 		String msg = "";
 		switch (key) {
 		case 1:
-			while (true) {
+			while (bean.isFlag() == false) {
 				System.out.println("1부터 10까지 숫자 중 하나를 입력");
 				System.out.println("난수 값"+bean.getCom());
 				System.out.println("도전 횟수는 " +(bean.getCount()+1));
 				bean.setPlayer(scanner.nextInt());
 				bean.setCount();
-				System.out.println((bean.getCom() == bean.getPlayer()) ?bean.result(): "랜덤숫자와 불일치");
-				
+				bean.setFlag();	
 				
 			}
-			
+			System.out.println(bean.toString());
 		case 2: return;
 		default:
 			System.out.println("잘못된 입력");

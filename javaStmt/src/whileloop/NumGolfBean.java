@@ -35,17 +35,13 @@ public class NumGolfBean {
 	public boolean isFlag() {
 		return flag;
 	}
-	public void setFlag(boolean flag) {
+/*	public void setFlag(boolean flag) {
 		this.flag = flag;
-	}
-	/*public void setFlag(boolean flag) {
-	this.flag = (getCom()==getPlayer())?true:false;
 	}*/
-	public String result()
-	{
-		setFlag(true);
-		return toString();
+	public void setFlag() {
+	this.flag = (getCom()==getPlayer())?true:false;
 	}
+
 	@Override
 	public String toString() {
 		return "결과 [플레이어=" + player + ", 컴=" + com + ", 카운트=" + count + ", 결과=" + flag + "]";
