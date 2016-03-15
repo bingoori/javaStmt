@@ -22,48 +22,49 @@ public class GradeServiceImpl implements GradeService {
 	@Override
 	public void input(GradeBean gradeBean) {
 		// 성적표 등록 C
-		gradeList.add(new GradeBean(2,"김유신",100,100,100,100));
-		gradeList.add(new GradeBean(3,"이유신",90,90,90,90));
-		gradeList.add(new GradeBean(4,"박유신",80,80,80,80));
-		gradeList.add(new GradeBean(5,"우유신",700,70,70,70));
-		gradeList.add(new GradeBean(6,"유유신",60,60,60,60));
-		gradeList.add(new GradeBean(7,"조유신",50,50,50,50));
+		gradeList.add(new GradeBean(2, "김유신", 100, 100, 100, 100));
+		gradeList.add(new GradeBean(3, "이유신", 90, 90, 90, 90));
+		gradeList.add(new GradeBean(4, "박유신", 80, 80, 80, 80));
+		gradeList.add(new GradeBean(5, "우유신", 700, 70, 70, 70));
+		gradeList.add(new GradeBean(6, "유유신", 60, 60, 60, 60));
+		gradeList.add(new GradeBean(7, "조유신", 50, 50, 50, 50));
 		gradeList.add(gradeBean);
 	}
 
 	@Override
 	public Vector<GradeBean> getList() {
 		// 성적표 리스트 출력 R
-		
+
 		return gradeList;
 
 	}
 
 	@Override
-	public String getGradeByHak(int hak) {
+	public GradeBean getGradeByHak(int hak) {
 		// 성적표 조회(학번) R
-		GradeBean tempBean = new GradeBean();
-		String temp = "";
+		GradeBean tempBean = new GradeBean(); 
+		//모든 데이터를 넘길수 없으므로 하나의 객체를 생성하여
+		//요구하는 객체의 정보만 넘긴다.
+
 		for (int i = 0; i < gradeList.size(); i++) {
+
 			System.out.println(gradeList.get(i).getHak());
-			if(gradeList.get(i).getHak() == hak)
-			{
-/*				tempBean.setHak(gradeList.get(i).getHak());
+
+			if (gradeList.get(i).getHak() == hak) {
+				tempBean.setHak(gradeList.get(i).getHak());
 				tempBean.setName(gradeList.get(i).getName());
 				tempBean.setJava(gradeList.get(i).getJava());
 				tempBean.setJsp(gradeList.get(i).getJsp());
 				tempBean.setSql(gradeList.get(i).getSql());
 				tempBean.setSpring(gradeList.get(i).getSpring());
-				temp = tempBean.toString();*/
-				System.out.println(gradeList.get(i).getName());
 				break;
-			}else 
+			} else
 			{
-				temp = "조회하려는 학번이 없습니다.";
-				break;
+				tempBean.setName("결과없음");
 			}
+
 		}
-		return temp;
+		return tempBean;
 
 	}
 
@@ -80,15 +81,24 @@ public class GradeServiceImpl implements GradeService {
 	}
 
 	@Override
-	public void delete() {
+	public GradeBean delete(int hak) {
 		// 성적표 삭제 D
+		String temp = "";
+		for (int i = 0; i < gradeList.size(); i++) {
+			if(gradeList.get(i).getHak() == hak)
+			{
+				gradeList.remove(i);
+			}
+			
+		}
+		return null;
 
 	}
 
 	@Override
 	public int getCount() {
 		// R 카운트 조회
-		
+
 		return gradeList.size();
 
 	}
