@@ -1,7 +1,7 @@
 package grade;
 
+import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.Vector;
 
 public class GradeController {
 	public static void main(String[] args) {
@@ -18,7 +18,12 @@ public class GradeController {
 						scanner.nextInt(), scanner.nextInt()));
 				break;
 			case 2:
-				Service.update();
+				System.out.println("수정하는 성적의 학번,java,sql,jsp,spring 점수를 입력하시오");
+				int hak = scanner.nextInt();
+				String name = Service.getGradeByHak(hak).getName();
+				System.out.println(Service.update(hak, name, scanner.nextInt(), scanner.nextInt(), scanner.nextInt(),
+						scanner.nextInt()));
+				// Service.update(Service.getGradeByHak(scanner.nextInt()));
 				break;
 			case 3:
 
@@ -27,11 +32,12 @@ public class GradeController {
 				System.out.println("삭제 완료 되었습니다.");
 				break;
 			case 4:
+				System.out.println("전체 목록을 출력합니다.");
 				System.out.println(Service.getList());
 				break;
 			case 5:
 				System.out.println("조회할 이름을 입력하세요.");
-				Vector<GradeBean> tempList = Service.getGradesByName(scanner.next());
+				ArrayList<GradeBean> tempList = Service.getGradesByName(scanner.next());
 				System.out.println((tempList == null) ? "조회하려는 이름이 없습니다" : tempList.toString());
 				break;
 			case 6:

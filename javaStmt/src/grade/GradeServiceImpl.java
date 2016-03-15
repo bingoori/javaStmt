@@ -1,5 +1,6 @@
 package grade;
 
+import java.util.ArrayList;
 import java.util.Vector;
 
 public class GradeServiceImpl implements GradeService {
@@ -9,11 +10,11 @@ public class GradeServiceImpl implements GradeService {
 
 	// 멤버 필드
 	// 속성을 모아놓은곳 (Bean)
-	private Vector<GradeBean> gradeList;
+	private ArrayList<GradeBean> gradeList;
 
 	// Vector<GradeBean> gradeList = new Vector<GradeBean>(); //인스턴스변수
 	public GradeServiceImpl() {
-		gradeList = new Vector<GradeBean>(); // 인스턴스 변수 초기화
+		gradeList = new ArrayList<GradeBean>(); // 인스턴스 변수 초기화
 	}
 	// 메서드 내부에 위치하면 참조변수(공유를 안하므로)
 	// 멤버 메소드 에어리어
@@ -32,7 +33,7 @@ public class GradeServiceImpl implements GradeService {
 	}
 
 	@Override
-	public Vector<GradeBean> getList() {
+	public ArrayList<GradeBean> getList() {
 		// 성적표 리스트 출력 R
 
 		return gradeList;
@@ -61,23 +62,36 @@ public class GradeServiceImpl implements GradeService {
 	}
 
 	@Override
-	public Vector<GradeBean> getGradesByName(String name) {
+	public ArrayList<GradeBean> getGradesByName(String name) {
 		// 성적표 조회(이름) R
-		Vector<GradeBean> tempList = new Vector<GradeBean>();
+		ArrayList<GradeBean> tempList = new ArrayList<GradeBean>();
 		for (int j = 0; j < gradeList.size(); j++) {
-			if(gradeList.get(j).getName().equals(name))
-			{
+			if (gradeList.get(j).getName().equals(name)) {
 				tempList.add(gradeList.get(j));
 			}
 		}
-		
+
 		return tempList;
 	}
 
 	@Override
-	public void update() {
+	public String update(int hak, String name, int java, int jsp, int sql, int spring) {
 		// 성적표 수정 U
+		String temp = "수정하려는 학번의 정보가 없습니다.";
+		if (gradeList.contains(getGradeByHak(hak))) {
+			GradeBean searchGrade = getGradeByHak(hak);
+			searchGrade.setJava(java);
+			searchGrade.setSql(sql);
+			searchGrade.setJsp(jsp);
+			searchGrade.setSpring(spring);
 
+			temp = "수정이 완료되었습니다.";
+		}
+
+		/*
+		 * this.delete(grade.getHak()); this.input(grade);
+		 */
+		return temp;
 	}
 
 	@Override
@@ -92,12 +106,6 @@ public class GradeServiceImpl implements GradeService {
 		// R 카운트 조회
 
 		return gradeList.size();
-
-	}
-
-	@Override
-	public void getCountByName() {
-		// R 이름조회시 카운트 조회
 
 	}
 
