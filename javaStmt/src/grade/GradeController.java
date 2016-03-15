@@ -29,10 +29,11 @@ public class GradeController {
 				Service.getGradesByName();
 				break;
 			case 6:
-				Service.getGradeByHak();
+				System.out.println("조회 하려는 학번을 입력하세요");
+				System.out.println(Service.getGradeByHak(scanner.nextInt()));
 				break;
 			case 7:
-				Service.getCount();
+				System.out.println(Service.getCount()+ " 명");
 				break;
 			case 0:
 				System.out.println("종료");
