@@ -17,4 +17,5 @@ public interface BankService {
 	 * 잔액 조회
 	 * */
 	public int findMoney();
+
 }

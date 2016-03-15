@@ -28,13 +28,13 @@ public static void main(String[] args) {
 	/**
 	 * 관리자
 	 * */
-	
+	/*
 	AdminServiceImpl service = new AdminServiceImpl(5);
 	
 	System.out.println(service.openAccount(scanner.next(), scanner.nextInt()));
 	System.out.println(service.openAccount(scanner.next(), scanner.nextInt()));
 	System.out.println(service.openAccount(scanner.next(), scanner.nextInt()));
-	/*	System.out.println("전체 계좌수 조회");
+		System.out.println("전체 계좌수 조회");
 	System.out.println(service.countAll());
 	System.out.println("이름 입력");
 	System.out.println("countByName 유저 계좌카운트 수");
@@ -46,8 +46,13 @@ public static void main(String[] args) {
 	}
 	System.out.println("계좌번호 조회");
 	AccountBean beans = service.findAccountByAccountNo(scanner.nextInt());
-	System.out.println(beans.toString());*/
+	System.out.println(beans.toString());
 	System.out.println("계좌해지");
 	System.out.println(service.closeAccount(scanner.nextInt()));
+	*/
+/**
+ * 	
+**/	
+	
 }
 }
