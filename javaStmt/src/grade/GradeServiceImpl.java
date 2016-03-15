@@ -26,7 +26,7 @@ public class GradeServiceImpl implements GradeService {
 		gradeList.add(new GradeBean(3, "이유신", 90, 90, 90, 90));
 		gradeList.add(new GradeBean(4, "박유신", 80, 80, 80, 80));
 		gradeList.add(new GradeBean(5, "우유신", 700, 70, 70, 70));
-		gradeList.add(new GradeBean(6, "유유신", 60, 60, 60, 60));
+		gradeList.add(new GradeBean(6, "우유신", 60, 60, 60, 60));
 		gradeList.add(new GradeBean(7, "조유신", 50, 50, 50, 50));
 		gradeList.add(gradeBean);
 	}
@@ -42,25 +42,17 @@ public class GradeServiceImpl implements GradeService {
 	@Override
 	public GradeBean getGradeByHak(int hak) {
 		// 성적표 조회(학번) R
-		GradeBean tempBean = new GradeBean(); 
-		//모든 데이터를 넘길수 없으므로 하나의 객체를 생성하여
-		//요구하는 객체의 정보만 넘긴다.
+		GradeBean tempBean = new GradeBean();
+		// 모든 데이터를 넘길수 없으므로 하나의 객체를 생성하여
+		// 요구하는 객체의 정보만 넘긴다.
 
 		for (int i = 0; i < gradeList.size(); i++) {
 
-			System.out.println(gradeList.get(i).getHak());
-
 			if (gradeList.get(i).getHak() == hak) {
-				tempBean.setHak(gradeList.get(i).getHak());
-				tempBean.setName(gradeList.get(i).getName());
-				tempBean.setJava(gradeList.get(i).getJava());
-				tempBean.setJsp(gradeList.get(i).getJsp());
-				tempBean.setSql(gradeList.get(i).getSql());
-				tempBean.setSpring(gradeList.get(i).getSpring());
+				tempBean = gradeList.get(i);
 				break;
-			} else
-			{
-				tempBean.setName("결과없음");
+			} else {
+				tempBean = null;
 			}
 
 		}
@@ -69,9 +61,17 @@ public class GradeServiceImpl implements GradeService {
 	}
 
 	@Override
-	public void getGradesByName() {
+	public Vector<GradeBean> getGradesByName(String name) {
 		// 성적표 조회(이름) R
-
+		Vector<GradeBean> tempList = new Vector<GradeBean>();
+		for (int j = 0; j < gradeList.size(); j++) {
+			if(gradeList.get(j).getName().equals(name))
+			{
+				tempList.add(gradeList.get(j));
+			}
+		}
+		
+		return tempList;
 	}
 
 	@Override
@@ -81,17 +81,9 @@ public class GradeServiceImpl implements GradeService {
 	}
 
 	@Override
-	public GradeBean delete(int hak) {
+	public String delete(int hak) {
 		// 성적표 삭제 D
-		String temp = "";
-		for (int i = 0; i < gradeList.size(); i++) {
-			if(gradeList.get(i).getHak() == hak)
-			{
-				gradeList.remove(i);
-			}
-			
-		}
-		return null;
+		return (gradeList.remove(this.getGradeByHak(hak))) ? "삭제성공" : "삭제실패";
 
 	}
 

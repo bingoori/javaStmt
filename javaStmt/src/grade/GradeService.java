@@ -22,11 +22,11 @@ public interface GradeService {
 	// 성적표 조회(학번) R
 	public GradeBean getGradeByHak(int hak);
 	// 성적표 조회(이름) R
-	public void getGradesByName();
+	public Vector<GradeBean> getGradesByName(String name);
 	// 성적표 수정 U
 	public void update();
 	// 성적표 삭제 D
-	public GradeBean delete(int hak);
+	public String delete(int hak);
 	// R 카운트 조회
 	public int getCount();
 	// R 이름조회시 카운트 조회

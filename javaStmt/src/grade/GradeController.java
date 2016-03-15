@@ -1,6 +1,7 @@
 package grade;
 
 import java.util.Scanner;
+import java.util.Vector;
 
 public class GradeController {
 	public static void main(String[] args) {
@@ -20,6 +21,7 @@ public class GradeController {
 				Service.update();
 				break;
 			case 3:
+
 				System.out.println("삭제하실 학번을 입력하세요");
 				System.out.println(Service.delete(scanner.nextInt()));
 				System.out.println("삭제 완료 되었습니다.");
@@ -28,14 +30,14 @@ public class GradeController {
 				System.out.println(Service.getList());
 				break;
 			case 5:
-				Service.getGradesByName();
+				System.out.println("조회할 이름을 입력하세요.");
+				Vector<GradeBean> tempList = Service.getGradesByName(scanner.next());
+				System.out.println((tempList == null) ? "조회하려는 이름이 없습니다" : tempList.toString());
 				break;
 			case 6:
 				System.out.println("조회 하려는 학번을 입력하세요");
 				GradeBean temp = Service.getGradeByHak(scanner.nextInt());
-				
-				System.out.println((temp == null)?temp.getName():temp.toString());
-	
+				System.out.println((temp == null) ? "조회하려는 학번이 없습니다" : temp.toString());
 				break;
 			case 7:
 				System.out.println(Service.getCount() + " 명");
