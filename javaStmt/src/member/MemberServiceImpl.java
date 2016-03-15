@@ -19,16 +19,20 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public boolean login(String id, String password) {
-		boolean result = true;
+	public MemberBean login(String id, String password) {
+		
+		MemberBean mBean = new MemberBean();
 		// 로그인
 		// 아이디가 존재하지 않아서 실패한 경우와 비번이 틀려서 경우에 따라서
 		// 메시지를 전달해줘야 함
 		if (map.containsKey(id) == false || !map.get(id).getPassword().equals(password)) {
-			result = false;
+			mBean = null;
+		}else
+		{
+			mBean = map.get(id);
 		}
-
-		return result;
+	
+		return mBean;
 	}
 
 	@Override
