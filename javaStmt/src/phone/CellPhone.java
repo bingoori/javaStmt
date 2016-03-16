@@ -5,7 +5,6 @@ private boolean portable;
 private String move;
 
 
-
 public boolean isPortable() {
 	return portable;
 }
