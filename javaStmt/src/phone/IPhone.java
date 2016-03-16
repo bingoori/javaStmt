@@ -17,11 +17,11 @@ public class IPhone extends CellPhone {
 		return data;
 	}
 
-
-	public void setData(String name,String data) {
+	public void setData(String name, String data) {
 		super.setCompany(BRAND);
 		super.setPortable(TRUE);
 		super.setCall(name);
-		this.data = super.getCompany() + "\t" + super.isPortable() + "\t\t" + super.getCall() + "\t\t" + data + " :I Message";
+		this.data = super.getCompany() + "\t" + super.isPortable() + "\t\t" + super.getCall() + "\t\t" + data
+				+ " :I Message";
 	}
 }
