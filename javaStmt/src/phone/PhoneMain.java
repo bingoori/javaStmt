@@ -10,13 +10,26 @@ public class PhoneMain {
 		Scanner scanner = new Scanner(System.in);
 		//usePhone(scanner); //집전화
 		//useNokia(scanner);
+		//useIPhone(scanner);
+		useAndroid(scanner);
+	}
+
+	public static void useAndroid(Scanner scanner) {
+		AndroidPhone aPhone = new AndroidPhone();
+		aPhone.setCompany("Samsung");
+		System.out.println(aPhone.getCompany() + "를 사용합니다.");
+		System.out.println("통화할 사람 ? : 보낼메시지 ?");
+		aPhone.setData(scanner.next(),scanner.next());
+		System.out.println(aPhone.getData());
+	}
+
+	public static void useIPhone(Scanner scanner) {
 		IPhone iPhone = new IPhone();
 		iPhone.setCompany("Apple");
 		System.out.println(iPhone.getCompany() + "를 사용합니다.");
-		System.out.println("통화할 사람 ? : 보낼메시지 ?");
+		System.out.println("통화할 사람 ? : 보낼메시지 ? : 사용하는 핸드폰 사이즈");
 		iPhone.setData(scanner.next(),scanner.next());
 		System.out.println(iPhone.getData());
-		
 	}
 
 	public static void useNokia(Scanner scanner) {

@@ -25,7 +25,6 @@ public String getCall() {
 }
 
 public void setCall(String call) {
-	
 	this.call = call + "에게 전화를 검";
 }
 
