@@ -20,38 +20,41 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public MemberBean login(String id, String password) {
-		
+
 		MemberBean mBean = new MemberBean();
 		// 로그인
 		// 아이디가 존재하지 않아서 실패한 경우와 비번이 틀려서 경우에 따라서
 		// 메시지를 전달해줘야 함
 		if (map.containsKey(id) == false || !map.get(id).getPassword().equals(password)) {
 			mBean = null;
-		}else
-		{
+		} else {
 			mBean = map.get(id);
 		}
-	
+
 		return mBean;
 	}
 
 	@Override
-	public MemberBean update(String id,String password,int birth,String addr) {
+	public MemberBean update(String id, String password, int birth, String addr) {
 		// 회원 수정
 		MemberBean tempbean = new MemberBean();
 		tempbean = map.get(id);
 		tempbean.setPassword(password);
 		tempbean.setBirth(birth);
 		tempbean.setAddr(addr);
-		
+
 		return tempbean;
 	}
 
 	@Override
-	public String remove(String id) {
+	public String remove(String id, int password) {
 		// 회원 삭제
-		map.remove(id);
-		return "회원 탈퇴 하였습니다";
+		if (map.get(id).getPassword().equals(password)) {
+			map.remove(id);
+			return "회원 탈퇴 하였습니다";
+		}
+
+		return "패스워드 틀렸습니다.";
 	}
 
 	@Override

@@ -5,6 +5,6 @@ public String join(MemberBean member);
 public MemberBean login(String id,String password);
 public MemberBean detail(String id);
 public MemberBean update(String id, String string, int i, String string2);
-public String remove(String id);
+public String remove(String id, int password);
 
 }
